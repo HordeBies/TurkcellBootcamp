@@ -1,9 +1,10 @@
-﻿int[] bucket = { 1, 2, 3, 4, 5 };
+﻿int[] bucket = { 1,3,5,7,8 };
 
 if(bucket.Length == 0)
     return;
 
-int min, max, sum, avg;
+int min, max, sum; 
+float avg;
 
 void Reset()
 {
@@ -12,7 +13,7 @@ void Reset()
     sum = 0;
 }
 
-void Print(string prefix) => Console.WriteLine($"{prefix}:\n\tmin={min}\tmax={max}\tsum={sum}\tavg={avg}");
+void Print(string prefix) => Console.WriteLine($"{prefix}:\n\tmin= {min}\tmax= {max}\tsum= {sum}\tavg= {avg.ToString("N2")}");
 
 #region For
 Reset();
@@ -23,7 +24,7 @@ for (int i = 0; i < bucket.Length; i++)
     if(item > max) max = item;
     sum += item;
 }
-avg = sum / bucket.Length;
+avg = sum * 1.0f / bucket.Length;
 Print("For");
 #endregion
 
@@ -35,7 +36,7 @@ foreach (var item in bucket)
     if(item > max) max = item;
     sum += item;
 }
-avg = sum / bucket.Length;
+avg = sum * 1.0f / bucket.Length;
 Print("For each");
 #endregion
 
@@ -50,7 +51,7 @@ while (idx < bucket.Length)
     sum += item;
     idx++;
 }
-avg = sum /bucket.Length;
+avg = sum * 1.0f / bucket.Length;
 Print("While");
 #endregion
 
@@ -65,6 +66,6 @@ do
     sum += item;
     idx++;
 }while(idx < bucket.Length);
-avg = sum / bucket.Length;
+avg = sum * 1.0f / bucket.Length;
 Print("Do while");
 #endregion
