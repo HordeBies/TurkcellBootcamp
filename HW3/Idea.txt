@@ -1,0 +1,20 @@
+﻿şu andaki durumumuzu ele alsak farklı eğitimleri veren aynı sisteme sahip bir düzen içerisindeyiz aşşağıdaki durum .Net kotlin vb sınıflarda aynı şekilde işliyor:
+
+human abstract classı
+	constructor (doğum tarihi, ismi)
+	string name, int age, bool isWorking (private set public get) (evet çalışıyor hayır dinleniyor)
+	protected work fonksiyonu
+	public virtual rest fonksiyonu (herkes kendi istediği gibi dinlenebilir override'lamak gerekir)
+
+Ibootcamper interface 
+	public StartLearning
+	public StopLearning
+
+teacher : insan
+	public Teach (list <Ieğitilebilir>)
+
+student : insan, Ibootcamper
+	public GoToSchool
+
+worker(mezun olmuş ve ya işi olan insan) : insan, Ibootcamper
+	public GoToWork
