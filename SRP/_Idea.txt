@@ -1,0 +1,29 @@
+﻿Genel olarak bi konsepti hiç bilmeyen birisine anlatmak istediğimde gerçek hayattan bir örnek kullanmanın daha öğretici ve anlaması kolay olduğuna inanırım.
+O yüzden tema olarak bir restorant'ın işleyişini seçiyorum:
+
+Restoranda çalışanlar:
+	-Chef
+		Sorumluluğu: yemek siparişi almak ve depodan malzemeleri kullanarak yemeği hazırlamak
+	-Waiter
+		Sorumluluğu: Müşteriye menüyü sunmak, Müşteriden sipariş almak, ve siparişi servis etmek
+	-Cashier
+		Sorumluluğu: fiş kesimi, müşterinin sipariş ödemesi
+		
+Sistemler
+	-Inventory
+		Sorumluluğu: Depodaki malzemelerle alakalı işlemlerden ve bilgi vermekle sorumlu. 
+	-Ingredient
+		Amacı: Menüdeki bir ürünün yapımında ihtiyaç duyulan bir malzeme, depoda saklanır.
+	-Menu
+		Amacı: Restoranın menüsü, içinde menüde olan ürünler bulunur
+	-MenuItem
+		Amacı: Restoranın menüsündeki bir ürün, yapımında ihtiyaç duyulan malzemeleri tutar.
+	-Order
+		Sorumluluğu: Bir müşterinin siparişinin kaydını almak
+ve son olarak:
+	-Customer
+		Amacı: Durumu daha iyi simüle edebilmek için müşteri sınıfı oluşturuyorum ki farklı classların birbirleriyle olan etkileşimi daha açık olsun.
+		Sorumluluğu: Sipariş vermek, yemeğini yemek ve siparişinin ücretini ödemek.
+
+bu classlar bizim amacımız olan single responsibility principle anlatımı için gayet yeterli. Normalde olsa En yukarıda bir Restaurant classı oluşturup yukarıdaki classları encapsule
+etmeyi tercih ederdim ancak senaryomuz o kadar büyük bir scope'a hitap etmediği için ve farklı restorant lokasyonları gibi bir durum düşünmediğimiz için encapsule etme gereği duymuyorum.
