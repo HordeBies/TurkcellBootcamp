@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOLID", "SOLID", "{7A042BA2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OCP", "OCP\OCP.csproj", "{3C6031C6-A5B5-41B9-B7D2-C1C1E8920F87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiskovSubstitution", "LiskovSubstitution\LiskovSubstitution.csproj", "{74F659EB-1610-4023-91A3-BBEA0F9A9251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiskovSubstitution", "LiskovSubstitution\LiskovSubstitution.csproj", "{74F659EB-1610-4023-91A3-BBEA0F9A9251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_HighSchool", "HW_HighSchool\HW_HighSchool.csproj", "{6B1129EA-04E3-4276-AC20-9644A4A4104B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{74F659EB-1610-4023-91A3-BBEA0F9A9251}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74F659EB-1610-4023-91A3-BBEA0F9A9251}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F659EB-1610-4023-91A3-BBEA0F9A9251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1129EA-04E3-4276-AC20-9644A4A4104B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1129EA-04E3-4276-AC20-9644A4A4104B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1129EA-04E3-4276-AC20-9644A4A4104B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1129EA-04E3-4276-AC20-9644A4A4104B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
