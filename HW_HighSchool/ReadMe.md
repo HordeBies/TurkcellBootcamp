@@ -6,8 +6,8 @@ The project is built with C# programming language and follows the SOLID principl
 
 The system consists of the following components:
 
-- `ISchool` interface: Defines the properties and methods that a school should have.
-- `IClassroom` interface: Defines the properties and methods that a classroom should have.
+- `ISchool` interface: Defines the properties that a school should have.
+- `IClassroom` interface: Defines the properties that a classroom should have.
 - `IStudent` interface: Defines the properties and methods that a student should have.
 - `ITeacher` interface: Defines the properties and methods that a teacher should have.
 - `School` class: Implements the ISchool interface and represents a school.
