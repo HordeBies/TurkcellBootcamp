@@ -1,18 +1,15 @@
-﻿using HW_HighSchool.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HW_HighSchool.ModelContracts;
 
 namespace HW_HighSchool.Models
 {
     internal class Teacher : ITeacher
     {
-        public int Id { get; init; }
+        private static int _idCounter = 0; //mimick auto id generation
+        public int TeacherID { get; init; }
         public string Name { get; set; }
         public Teacher(string name)
         {
+            TeacherID = _idCounter++;
             Name = name;
         }
         public void ReceiveFile(IStudent student, string fileName) //should take file object itself instead of the name but this will do for now

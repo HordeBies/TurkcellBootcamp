@@ -1,30 +1,19 @@
-﻿using HW_HighSchool.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HW_HighSchool.ModelContracts;
 
 namespace HW_HighSchool.Models
 {
     internal class School : ISchool
     {
-        public string Name { get; private set; }
+        private static int _idCounter = 0; //mimick auto id generation
+        public int SchoolID { get; init; }
+        public string Name { get; set; }
         public List<IClassroom> Classrooms { get; private set; }
 
         public School(string name)
         {
+            SchoolID = _idCounter++;
             Name = name;
             Classrooms = new List<IClassroom>();
         }
-        public void AddClassroom(IClassroom classroom)
-        {
-            Classrooms.Add(classroom);
-        }
-        public void RemoveClassroom(IClassroom classroom)
-        {
-            Classrooms.Remove(classroom);
-        }
-
     }
 }
