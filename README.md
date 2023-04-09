@@ -7,8 +7,12 @@ To get started with this repository, simply clone or download the code to your l
 # Homework Assignments
 Here's a list of the homework assignments I've completed and submitted to this repository so far:
 
-- [C# Basics](./C%23%20Basics) with 3 assignments
-- [Single Responsibility Principle](./SOLID%20Principles/SRP)
-- [Open-Close Principle](./SOLID%20Principles/OCP)
-- [Liskov substitution principle](./SOLID%20Principles/LiskovSubstitution)
+- [C# Basics](./C%23%20Basics)
+    - [Loops](./C%23%20Basics/HW1)
+    - [Methods](./C%23%20Basics/HW2)
+    - [OOP](./C%23%20Basics/HW3)
+- [Solid Principles](./SOLID%20Principles)
+    - [Single Responsibility Principle](./SOLID%20Principles/SRP)
+    - [Open-Close Principle](./SOLID%20Principles/OCP)
+    - [Liskov substitution principle](./SOLID%20Principles/LiskovSubstitution)
 - [**School Management System**](./HW_HighSchool)
