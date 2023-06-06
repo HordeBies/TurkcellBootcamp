@@ -16,3 +16,6 @@ Here's a list of the homework assignments I've completed and submitted to this r
     - [Open-Close Principle](./SOLID%20Principles/OCP)
     - [Liskov substitution principle](./SOLID%20Principles/LiskovSubstitution)
 - [**School Management System**](./HW_HighSchool)
+- [Researches](./Researches)
+    - [PKCE](./Researches/PKCE_Flow)
+    - [Hangfire](./Researches/HangFire_WebAPI)
