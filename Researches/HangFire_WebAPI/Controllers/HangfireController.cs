@@ -23,7 +23,7 @@ namespace HangFire_WebAPI.Controllers
             return Ok($"Job with id = {jobId} has been fired to welcome the user.");
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)] // makes the swagger skip exploring this method 
+        [ApiExplorerSettings(IgnoreApi = true)] // makes swagger to skip exploring this method 
         public void SendWelcomeEmail(string message)
         {
             // send email logic
@@ -40,7 +40,7 @@ namespace HangFire_WebAPI.Controllers
             var jobId = BackgroundJob.Schedule(() => SendDiscountEmail("Congratulations, you have a %{0} discount waiting in your account.", discountRate),TimeSpan.FromSeconds(delayInSeconds));
             return Ok($"Job with id = {jobId} has been scheduled for {delayInSeconds} seconds later to remind the user with discount.");
         }
-        [ApiExplorerSettings(IgnoreApi = true)] // makes the swagger skip exploring this method 
+        [ApiExplorerSettings(IgnoreApi = true)] // makes swagger to skip exploring this method 
         public void SendDiscountEmail(string message, params object?[]? args)
         {
             // send email logic
@@ -59,32 +59,32 @@ namespace HangFire_WebAPI.Controllers
             return Ok($"Recurring has been scheduled to fire every {recurrencePatternHumanReadable} to inform the user with latest news.");
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)] // makes the swagger skip exploring this method 
+        [ApiExplorerSettings(IgnoreApi = true)] // makes swagger to skip exploring this method 
         public async Task SendNewsLetter()
         {
             // send email logic
             Console.WriteLine("Time: {0}. The most up to date news are under your fingers!",DateTime.Now.ToString("t")); // i use short time format, but you can choose to use anything you like, for example short or long; date, date/time etc.
         }
 
-        // Continuous Jobs
+        // Continuation Jobs
         [HttpPost]
         [Route("[action]")]
         public IActionResult UnsubscribeFromNewsLetters()
         {
-            // Email to user to confirm unsubscription. To exploring easier, i added 30 seconds delay.
-            var jobId = BackgroundJob.Schedule(() => SendUnsubscriptionEmail(), TimeSpan.FromSeconds(30));
-            // Actually unsubscribe the user after.
-            BackgroundJob.ContinueJobWith(jobId, () => UnsubscribeUserFromNewsLetters());
+            // Unsubscribe the user. To exploring easier, i added 30 seconds delay before executing the job.
+            var jobId = BackgroundJob.Schedule(() => UnsubscribeUserFromNewsLetters(), TimeSpan.FromSeconds(30));
+            // Email to user confirmed unsubscription message using continuation job.
+            BackgroundJob.ContinueJobWith(jobId, () => SendUnsubscriptionEmail());
             return Ok($"Job with id = {jobId} has been scheduled for 30 seconds later to unsubscribe the user from news letters.");
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)] // makes the swagger skip exploring this method 
+        [ApiExplorerSettings(IgnoreApi = true)] // makes swagger to skip exploring this method 
         public async Task SendUnsubscriptionEmail()
         {
             // send email logic
             Console.WriteLine("Email: You have been unsubscribed from our news letters.");
         }
-        [ApiExplorerSettings(IgnoreApi = true)] // makes the swagger skip exploring this method 
+        [ApiExplorerSettings(IgnoreApi = true)] // makes swagger to skip exploring this method 
         public void UnsubscribeUserFromNewsLetters()
         {
             // unsubscribe logic
