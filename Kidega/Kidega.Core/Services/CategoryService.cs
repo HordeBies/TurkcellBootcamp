@@ -45,10 +45,10 @@ namespace Kidega.Core.Services
             }
             return mapper.Map<CategoryResponse>(category);
         }
-
+        
         public async Task UpdateCategoryAsync(CategoryUpdateRequest request)
         {
-            var categoryFromDb = await categoryRepository.Get(request.CategoryId);
+            var categoryFromDb = await categoryRepository.Get(request.Id);
             if(categoryFromDb == null)
             {
                 throw new Exception("Category not found");

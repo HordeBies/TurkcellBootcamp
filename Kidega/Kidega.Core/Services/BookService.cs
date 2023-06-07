@@ -13,6 +13,7 @@ namespace Kidega.Core.Services
         {
             var book = mapper.Map<Book>(request);
             await bookRepository.Add(book);
+            book = await bookRepository.Get(book.Id, "Author,Category");
             return mapper.Map<BookResponse>(book);
         }
 
@@ -28,13 +29,13 @@ namespace Kidega.Core.Services
 
         public async Task<IEnumerable<BookResponse>> GetAllBooksAsync()
         {
-            var books = await bookRepository.GetAll();
+            var books = await bookRepository.GetAll("Author,Category");
             return mapper.Map<IEnumerable<BookResponse>>(books);
         }
 
         public async Task<BookResponse> GetBookAsync(int id)
         {
-            var book = await bookRepository.Get(id);
+            var book = await bookRepository.Get(id, "Author,Category");
             if(book == null)
             {
                 throw new Exception("Book not found");
@@ -45,7 +46,7 @@ namespace Kidega.Core.Services
         public async Task UpdateBookAsync(BookUpdateRequest request)
         {
 
-            var bookFromDb = await bookRepository.Get(request.BookId);
+            var bookFromDb = await bookRepository.Get(request.Id);
             if(bookFromDb == null)
             {
                 throw new Exception("Book not found");

@@ -4,6 +4,7 @@ using Kidega.Infrastructure.DatabaseContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kidega.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230607155546_MigratedToCommonKeyNameForTables")]
+    partial class MigratedToCommonKeyNameForTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,58 +40,6 @@ namespace Kidega.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Jane Austen"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Mark Twain"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "William Shakespeare"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Charlotte Bronte"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "F. Scott Fitzgerald"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Charles Dickens"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "J.R.R. Tolkien"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "George Orwell"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Harper Lee"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Leo Tolstoy"
-                        });
                 });
 
             modelBuilder.Entity("Kidega.Domain.Entities.Book", b =>
@@ -119,88 +70,6 @@ namespace Kidega.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = 1,
-                            CategoryId = 1,
-                            Price = 19.99m,
-                            Title = "Pride and Prejudice"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AuthorId = 2,
-                            CategoryId = 2,
-                            Price = 14.99m,
-                            Title = "Adventures of Huckleberry Finn"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AuthorId = 3,
-                            CategoryId = 3,
-                            Price = 9.99m,
-                            Title = "Romeo and Juliet"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AuthorId = 4,
-                            CategoryId = 4,
-                            Price = 24.99m,
-                            Title = "Jane Eyre"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AuthorId = 5,
-                            CategoryId = 5,
-                            Price = 12.99m,
-                            Title = "The Great Gatsby"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AuthorId = 6,
-                            CategoryId = 6,
-                            Price = 29.99m,
-                            Title = "A Tale of Two Cities"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AuthorId = 7,
-                            CategoryId = 7,
-                            Price = 16.99m,
-                            Title = "The Lord of the Rings"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AuthorId = 8,
-                            CategoryId = 8,
-                            Price = 11.99m,
-                            Title = "1984"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AuthorId = 9,
-                            CategoryId = 9,
-                            Price = 21.99m,
-                            Title = "To Kill a Mockingbird"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AuthorId = 10,
-                            CategoryId = 10,
-                            Price = 17.99m,
-                            Title = "War and Peace"
-                        });
                 });
 
             modelBuilder.Entity("Kidega.Domain.Entities.Category", b =>
@@ -218,58 +87,6 @@ namespace Kidega.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Classic Literature"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Adventure"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Tragedy"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Gothic Fiction"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "American Literature"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Historical Fiction"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Fantasy"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Dystopian"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Coming of Age"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Russian Literature"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

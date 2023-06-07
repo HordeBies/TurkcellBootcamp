@@ -8,7 +8,7 @@ namespace Kidega.Core.DTO
 {
     public class AuthorResponse
     {
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

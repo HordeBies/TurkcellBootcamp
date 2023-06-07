@@ -10,7 +10,7 @@ namespace Kidega.Core.DTO
     public class BookUpdateRequest
     {
         [Required]
-        public int BookId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Title { get; set; }

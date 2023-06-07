@@ -10,7 +10,7 @@ namespace Kidega.Core.DTO
     public class AuthorUpdateRequest
     {
         [Required]
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }

@@ -1,5 +1,9 @@
 using Kidega.Core.Mappings;
+using Kidega.Core.ServiceContracts;
+using Kidega.Core.Services;
+using Kidega.Domain.RepositoryContracts;
 using Kidega.Infrastructure.DatabaseContexts;
+using Kidega.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +20,16 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddAutoMapper(typeof(MappingConfig));
+
+#region CustomServices
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
+
+#endregion
 
 var app = builder.Build();
 

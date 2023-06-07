@@ -10,7 +10,7 @@ namespace Kidega.Core.DTO
     public class CategoryUpdateRequest
     {
         [Required]
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }

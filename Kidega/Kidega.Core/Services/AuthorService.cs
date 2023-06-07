@@ -48,7 +48,7 @@ namespace Kidega.Core.Services
 
         public async Task UpdateAuthorAsync(AuthorUpdateRequest request)
         {
-            var authorFromDb = await authorRepository.Get(request.AuthorId);
+            var authorFromDb = await authorRepository.Get(request.Id);
             if(authorFromDb == null)
             {
                 throw new Exception("Author not found");
