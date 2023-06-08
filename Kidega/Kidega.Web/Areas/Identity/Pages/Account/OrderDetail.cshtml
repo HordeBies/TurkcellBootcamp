@@ -1,0 +1,115 @@
+﻿@page "{id:int?}"
+@model Kidega.Web.Areas.Identity.Pages.Account.OrderDetailModel
+@{
+}
+
+<br />
+<div class="container">
+    <div class="card shadow border-0">
+
+        <div class="card-header bg-dark bg-gradient text-light ml-0 py-4">
+            <div class="row px-4">
+                <div class="col-6">
+                    <h5 class="pt-2 text-white">
+                        Order Details
+                    </h5>
+                </div>
+                <div class="col-6 text-end">
+                    <a asp-area="Identity" asp-page="/Account/Orders" class="btn btn-outline-danger btn-sm">Back to Orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container rounded p-2">
+                <div class="row">
+                    <div class="col-12 col-lg-6 pb-4">
+                        <div class="row">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-info">Shipping Details:</span>
+                            </h4>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-3">
+                                <label asp-for="@Model.OrderViewModel.FullName">Full Name</label>
+                            </div>
+                            <div class="col-9">
+                                <input readonly asp-for="@Model.OrderViewModel.FullName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-3">
+                                <label asp-for="@Model.OrderViewModel.PhoneNumber">Phone Number</label>
+                            </div>
+                            <div class="col-9">
+                                <input readonly asp-for="@Model.OrderViewModel.PhoneNumber" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-3">
+                                <label asp-for="@Model.OrderViewModel.Address">Address</label>
+                            </div>
+                            <div class="col-9">
+                                <input readonly asp-for="@Model.OrderViewModel.Address" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-3">
+                                <label asp-for="@Model.OrderViewModel.City">City</label>
+                            </div>
+                            <div class="col-9">
+                                <input readonly asp-for="@Model.OrderViewModel.City" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-3">
+                                <label asp-for="@Model.OrderViewModel.PostalCode">Postal Code</label>
+                            </div>
+                            <div class="col-9">
+                                <input readonly asp-for="@Model.OrderViewModel.PostalCode" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5 offset-lg-1">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-info">Order Summary:</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            @foreach (var item in Model.OrderViewModel.OrderItems)
+                            {
+                                var book = Model.OrderItemBookDetails[item];
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="my-0">@book.Title</h6>
+                                        <small class="text-muted">by @book.AuthorName</small>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="text-warning">@((item.UnitPriceOnPurchase * item.Quantity).ToString("c")) </span>
+                                        <br>
+                                        <small class="text-muted">Quantity: @item.Quantity</small>
+                                        <br>
+                                        <small class="text-muted">Unit Price: @item.UnitPriceOnPurchase.ToString("c")</small>
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <small class="text-info">Total (USD)</small>
+                                <strong class="text-info">@Model.OrderViewModel.OrderTotal.ToString("c")</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-12 col-md-8 pt-2">
+                    <p style="color:maroon; font-size:14px;">
+                        Estimate Arrival Date:
+                        @Model.OrderViewModel.OrderDate.AddDays(3).ToShortDateString() - @Model.OrderViewModel.OrderDate.AddDays(7).ToShortDateString()
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
