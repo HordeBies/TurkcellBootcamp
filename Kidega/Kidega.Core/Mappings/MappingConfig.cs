@@ -24,6 +24,12 @@ namespace Kidega.Core.Mappings
             CreateMap<Author, AuthorUpdateRequest>().ReverseMap();
             CreateMap<Author, AuthorResponse>();
             CreateMap<AuthorResponse, AuthorUpdateRequest>();
+
+            CreateMap<OrderAddRequest, Order>()
+                .ForMember(r => r.OrderItems, act => act.Ignore());
+            CreateMap<Order, OrderResponse>();
+            CreateMap<OrderResponse, OrderUpdateRequest>();
+            CreateMap<OrderItem, OrderItemResponse>();
         }
     }
 }

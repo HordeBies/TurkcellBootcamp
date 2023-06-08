@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using Kidega.Core.DTO;
 using Kidega.Core.ServiceContracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Kidega.Web.Controllers
+namespace Kidega.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class CategoryController(ICategoryService categoryService, IMapper mapper) : Controller
     {
         public async Task<IActionResult> Index()
@@ -35,7 +38,7 @@ namespace Kidega.Web.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             var model = mapper.Map<CategoryUpdateRequest>(await categoryService.GetCategoryAsync(id.Value));
-            
+
             return View(model);
         }
 

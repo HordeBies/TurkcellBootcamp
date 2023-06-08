@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Kidega.Core.DTO;
 using Kidega.Core.ServiceContracts;
-using Kidega.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Kidega.Web.Controllers
+namespace Kidega.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class AuthorController(IAuthorService authorService, IMapper mapper) : Controller
     {
         public async Task<IActionResult> Index()

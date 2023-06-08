@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card-body p-4">
-        <form asp-controller="Category" asp-action="Create" method="post" class="row" enctype="multipart/form-data">
+        <form asp-area="Admin" asp-controller="Category" asp-action="Create" method="post" class="row" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12">
                     <div class="border p-3">
@@ -23,7 +23,7 @@
                                 <button type="submit" class="btn btn-dark shadow-none form-control">Create</button>
                             </div>
                             <div class="col-6 col-md-3">
-                                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-dark shadow-none form-control">Cancel</a>
+                                <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-outline-dark shadow-none form-control">Cancel</a>
                             </div>
                         </div>
                     </div>

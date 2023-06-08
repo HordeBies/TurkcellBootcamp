@@ -6,6 +6,7 @@
         public void ClearAll() => CartItems.Clear();
 
         public decimal TotalPrice() => CartItems.Sum(item => item.Book.Price * item.Quantity);
+        public int TotalItemCount() => CartItems.Count;
 
         public void AddItem(CartItem item)
         {

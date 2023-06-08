@@ -1,14 +1,15 @@
-﻿@model BookCreateVM
+﻿@model BookUpdateVM
 <div class="card shadow border-0 my-4">
     <div class="card-header bg-dark bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white pt-2">Add Book</h2>
+                <h2 class="text-white pt-2">Update Book</h2>
             </div>
         </div>
     </div>
     <div class="card-body p-4">
-        <form asp-controller="Book" asp-action="Create" method="post" class="row" enctype="multipart/form-data">
+        <form asp-area="Admin" asp-controller="Book" asp-action="Update" method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Book.Id" hidden />
             <div class="row">
                 <div class="col-12">
                     <div class="border p-3">
@@ -39,10 +40,10 @@
                         </div>
                         <div class="row text-center mt-3">
                             <div class="col-6 col-md-3">
-                                <button type="submit" class="btn btn-dark shadow-none form-control">Create</button>
+                                <button type="submit" class="btn btn-dark shadow-none form-control">Update</button>
                             </div>
                             <div class="col-6 col-md-3">
-                                <a asp-controller="Book" asp-action="Index" class="btn btn-outline-dark shadow-none form-control">Cancel</a>
+                                <a asp-area="Admin" asp-controller="Book" asp-action="Index" class="btn btn-outline-dark shadow-none form-control">Cancel</a>
                             </div>
                         </div>
                     </div>

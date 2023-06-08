@@ -3,11 +3,14 @@ using Kidega.Core.DTO;
 using Kidega.Core.ServiceContracts;
 using Kidega.Core.Services;
 using Kidega.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Kidega.Web.Controllers
+namespace Kidega.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class BookController(IBookService bookService, ICategoryService categoryService, IAuthorService authorService, IMapper mapper) : Controller
     {
         public IActionResult Index()

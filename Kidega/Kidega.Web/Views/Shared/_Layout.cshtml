@@ -34,10 +34,16 @@
                                 Admin
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-controller="Author" asp-action="index">Authors</a></li>
-                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-controller="Book" asp-action="index">Books</a></li>
-                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-controller="Category" asp-action="index">Categories</a></li>
+                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-area="Admin" asp-controller="Author" asp-action="index">Authors</a></li>
+                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-area="Admin" asp-controller="Book" asp-action="index">Books</a></li>
+                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-area="Admin" asp-controller="Category" asp-action="index">Categories</a></li>
+                                <li><a class="dropdown-item nav-link text-dark ps-2 py-1" asp-area="Admin" asp-controller="Order" asp-action="index">Orders</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Cart" asp-action="Index">
+                                @await Component.InvokeAsync("ShoppingCart")
+                            </a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
