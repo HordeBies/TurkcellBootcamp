@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<BookResponse>
+<table id="tblData" class="table table-bordered card row pb-3" cellspacing="0" width="100%" style="table-layout:fixed;">
+    <thead>
+        <tr>
+            <th>Book Image</th>
+            <th>Book Title</th>
+            <th>Author Name</th>
+            <th>Category Name</th>
+            <th>Price</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody class="px-0">
+        @foreach (var item in Model)
+        {
+            <tr class="card-body border-0 p-3 shadow border-top border-5 rounded" style="width: 18rem; height:35rem">
+                <td><a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;"> <img src="https://picsum.photos/200/300" height="300" class="card-img-top rounded" /> </a></td>
+                <td class="card-title h5 text-dark opacity-75 text-uppercase text-center"> <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="text-dark"> @item.Title </a></td>
+                <td class="card-title text-warning py-0 my-0">by <b><button class="text-warning" onclick="searchFromTable('@item.AuthorName')">@item.AuthorName</button> </b></td>
+                <td><button class="text-dark" onclick="searchFromTable('@item.CategoryName')" >@item.CategoryName</button></td>
+                <td class="card-title h5 text-warning py-0 my-0 text-center">@item.Price.ToString("c")</td>
+                <td><a id="action" asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-dark bg-gradient border-0 shadow-none form-control" style="cursor:pointer"> Details </a></td>
+            </tr>
+        }
+
+    </tbody>
+
+@section Styles
+    {
+    <link rel="stylesheet" href="~/css/Home/Index.css" />
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section Scripts{
+    <script src="~/js/Home/Index.js"></script>
+}

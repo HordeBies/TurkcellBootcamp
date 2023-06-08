@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Kidega.Domain.Entities
 {
     public class Book: IEntity
@@ -8,7 +10,8 @@ namespace Kidega.Domain.Entities
         [Required]
         public string Title { get; set; }
         [Required]
-        public decimal Price { get; set; } // Without a precision set Price will have 18,2 as default for 18 otal digits and 2 digits after the decimal point
+        [Column(TypeName = "decimal(18,4)")]
+        public decimal Price { get; set; }
 
         // Foreign key properties
         [Required]
