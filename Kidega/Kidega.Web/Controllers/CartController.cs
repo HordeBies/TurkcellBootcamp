@@ -1,6 +1,7 @@
 ﻿using Kidega.Core.DTO;
 using Kidega.Core.ServiceContracts;
 using Kidega.Web.Extensions;
+using Kidega.Web.Filters;
 using Kidega.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using System.Security.Claims;
 
 namespace Kidega.Web.Controllers
 {
+    [ServiceFilter(typeof(ExceptionHandlingFilter))]
     public class CartController(IBookService bookService, IOrderService orderService) : Controller
     {
         private ShoppingCartVM viewModel { get; set; }

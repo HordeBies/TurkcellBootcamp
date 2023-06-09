@@ -1,16 +1,18 @@
 using Kidega.Core.Mappings;
-using Kidega.Core.ServiceContracts;
-using Kidega.Core.Services;
-using Kidega.Domain.RepositoryContracts;
-using Kidega.Infrastructure.DatabaseContexts;
-using Kidega.Infrastructure.Repositories;
 using Kidega.Web.Extensions;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Kidega.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.ConfigureServices(builder.Configuration);
+builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAutoMapper(typeof(MappingConfig)); 
+
+builder.Services.ConfigureDatabase(builder.Configuration)
+    .ConfigureIdentity()
+    .ConfigureCaches()
+    .ConfigureCookies()
+    .ConfigureInjections();
 
 var app = builder.Build();
 
@@ -27,8 +29,9 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseResponseCaching();
+app.UseRequestTrackingMiddleware(); // Custom Middleware to log each incoming request, including the URL, HTTP method, request headers, and execution time
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
