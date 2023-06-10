@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MappingConfig)); 
-
+// TODO: Configure Serilog for better logging management
 builder.Services.ConfigureDatabase(builder.Configuration)
     .ConfigureIdentity()
     .ConfigureCaches()

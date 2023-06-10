@@ -68,6 +68,9 @@ namespace Kidega.Web.Controllers
                 City = viewModel.ShipmentInformation.City,
             };
             await orderService.CreateOrderAsync(addRequest);
+            // TODO: Add Stripe payment
+            HttpContext.Session.Remove("cart");
+            TempData["success"] = "Your order has been placed successfully";
             return RedirectToAction("Index","Home");
         }
 
