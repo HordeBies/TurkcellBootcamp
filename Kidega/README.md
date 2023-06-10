@@ -29,3 +29,6 @@ Kidega uses exception handling filter to handle unhandled exceptions a customer 
 
 ## Middleware
 Kidega uses request tracking middleware that tracks and logs each incoming request, including the URL, HTTP method, request headers, and execution time. This can be useful for monitoring and analyzing traffic patterns.
+
+## View Component
+Kidega uses a custom view component to render shopping cart icon with total item in cart count on navbar.
