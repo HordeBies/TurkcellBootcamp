@@ -13,7 +13,7 @@ namespace Kidega.Web.Areas.Identity.Pages.Account
         {
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            OrdersViewModel = await orderService.GetAllOrdersAsync(id);
+            OrdersViewModel = (await orderService.GetAllOrdersAsync(id)).OrderByDescending(x => x.OrderDate);
             return Page();
         }
     }
