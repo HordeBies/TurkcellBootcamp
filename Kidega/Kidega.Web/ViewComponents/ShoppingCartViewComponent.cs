@@ -11,20 +11,7 @@ namespace Kidega.Web.ViewComponents
             var cart = HttpContext.Session.GetJson<ShoppingCart>("cart");
             return View(cart == null ? 0 : cart.TotalItemCount());
 
-            //var claimsIdentity = (ClaimsIdentity)User.Identity;
-            //var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            //if(claim == null)
-            //{
-            //    HttpContext.Session.Clear();
-            //    return View(0);
-            //}
-            //else
-            //{
-            //    if(HttpContext.Session.GetInt32(SessionSD.ShoppingCart) == null)
-            //        HttpContext.Session.SetInt32(SessionSD.ShoppingCart, (await unitOfWork.ShoppingCart.GetAll(r => r.ApplicationUserId == claim.Value)).Count());
-                
-            //    return View(HttpContext.Session.GetInt32(SessionSD.ShoppingCart));
-            //}
+            // TODO: Can save the shopping cart in database and retrieve it from there instead of session storage and use session to store the number of items in cart and clear or set it when user logs out or logs in.
         }
     }
 }

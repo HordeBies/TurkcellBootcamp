@@ -9,7 +9,7 @@ namespace Kidega.Domain.Entities
         public int Id { get; set; }
         public int Quantity { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal UnitPriceOnPurchase { get; set; }
+        public decimal UnitPriceOnPurchase { get; set; } // Book price can change after purchase we need to keep the price at the time of purchase
         [Required]
         public int OrderId { get; set; }
         [Required]

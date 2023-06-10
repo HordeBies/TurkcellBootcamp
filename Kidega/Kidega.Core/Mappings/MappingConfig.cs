@@ -11,7 +11,7 @@ namespace Kidega.Core.Mappings
             CreateMap<BookAddRequest, Book>();
             CreateMap<Book, BookUpdateRequest>().ReverseMap();
             CreateMap<Book, BookResponse>()
-                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name))
+                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name)) // custom map
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
             CreateMap<BookResponse, BookUpdateRequest>();
 
@@ -26,7 +26,7 @@ namespace Kidega.Core.Mappings
             CreateMap<AuthorResponse, AuthorUpdateRequest>();
 
             CreateMap<OrderAddRequest, Order>()
-                .ForMember(r => r.OrderItems, act => act.Ignore());
+                .ForMember(r => r.OrderItems, act => act.Ignore()); // ignore mapping, will be mapped manually
             CreateMap<Order, OrderResponse>();
             CreateMap<OrderResponse, OrderUpdateRequest>();
             CreateMap<OrderItem, OrderItemResponse>();

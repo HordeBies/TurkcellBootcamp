@@ -13,8 +13,7 @@ namespace Kidega.Web.Extensions
         {
             var serializedString = session.GetString(key);
 
-            return serializedString == null ? default(T) :
-                                               JsonSerializer.Deserialize<T>(serializedString);
+            return serializedString == null ? default(T) : JsonSerializer.Deserialize<T>(serializedString);
 
 
         }

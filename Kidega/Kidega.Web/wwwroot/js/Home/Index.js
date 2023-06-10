@@ -1,9 +1,9 @@
 var dataTable;
 $(document).ready(function () {
-    var params = new URLSearchParams(window.location.search);
+    var params = new URLSearchParams(window.location.search); // Take search parameter from url and set to search input
     loadDataTable(params.get('search') ?? '');
 
-    dataTable.on('search.dt', function (e, settings) {
+    dataTable.on('search.dt', function (e, settings) { // On search event callback, update search route parameter
         var search = dataTable.search();
         if (history.pushState) {
             var params = new URLSearchParams(window.location.search);
@@ -29,7 +29,7 @@ function loadDataTable(defaultSearch) {
             { data: 'authorName', className: 'card-title text-warning py-0 my-0', "render": function (data) { return `by <b><button class="text-warning" onclick="searchFromTable('${data}')">${data}</button> </b>` }, "width": "20%" },
             { data: 'categoryName', "render": function (data) { return `<button class="text-dark" onclick="searchFromTable('${data}')" >${data}</button>` }, "width": "10%" },
             { data: 'price', className:'card-title h5 text-warning py-0 my-0 text-center' , render: $.fn.dataTable.render.number(',', '.', 2, '', '$'), "width": "10%" },
-            { data: 'id', "render": function (data) {return `<a id="action" asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-dark bg-gradient border-0 shadow-none form-control" style="cursor:pointer"> Details </a>`;}, "width": "10%" }
+            { data: 'id', "render": function (data) {return `<a id="action" href="Home/Details/${data}" class="btn btn-sm btn-dark bg-gradient border-0 shadow-none form-control" style="cursor:pointer"> Details </a>`;}, "width": "10%" }
         ],
         "rowCallback": function (row, data, index) {
             $(row).addClass('card-body border-0 p-3 shadow border-top border-5 rounded')

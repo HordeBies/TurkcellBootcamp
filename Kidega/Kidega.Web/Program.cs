@@ -45,3 +45,13 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+// TODO: Consideration for production environment: Add a method to apply migrations and seed default roles with an admin account if the database is empty. Something Like:
+//async Task SeedDatabase()
+//{
+//    using (var scope = app.Services.CreateScope())
+//    {
+//        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+//        await dbInitializer.Initialize();
+//    }
+//}
