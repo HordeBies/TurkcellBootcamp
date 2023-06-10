@@ -12,7 +12,7 @@ OAuth 2.0 is a widely used protocol for granting access to resources on behalf o
 # Why
 
 Like mentioned before, PKCE is used to add an additional layer of protection to OAuth 2.0 authorization. But why?
-Imagine a user named **bies** have 2 applications on your device, lets call them app1 and app2. And developers created app1 using OAuth 2 authorization code flow, which is good but they hadn't realized there are some vulnerabilities discovered in native apps. Now lets follow this made up scenario:
+Imagine we are a user named **bies** have 2 applications on our device, lets call them app1 and app2. And developers created app1 using OAuth 2 authorization code flow, which is good but they hadn't realized there are some vulnerabilities discovered in native apps. Now lets follow this made up scenario:
 
 - app1 wants to make a network call to the service provider so it calls over network services and it makes a request
     - app1: -calls to network services- "can i get my authorization code"
